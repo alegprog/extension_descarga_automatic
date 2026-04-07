@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "SRI Toolkit Automation",
+  "version": "1.0",
+  "description": "Automatiza la descarga y envío de comprobantes del SRI",
+  "permissions": [
+    "downloads",
+    "storage", 
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://srienlinea.sri.gob.ec/*",
+    "http://*/*",
+    "https://*/*",
+    "file:///*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://srienlinea.sri.gob.ec/comprobantes-electronicos-internet*"],
+      "js": ["content.js"]
+    }
+  ]
+}
